@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  user-service:
+    build:
+      context: ./user-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
+
+  exercise-service:
+    build:
+      context: ./exercise-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"

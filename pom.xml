@@ -1,0 +1,47 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.gym</groupId>
+    <artifactId>java-gym</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>user-service</module>
+        <module>exercise-service</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>run-all</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>run-user-service</id>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>com.gym.userservice.UserServiceApplication</mainClass>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>run-exercise-service</id>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>com.gym.exerciseservice.ExerciseServiceApplication</mainClass>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
